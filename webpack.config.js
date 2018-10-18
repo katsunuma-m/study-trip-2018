@@ -27,6 +27,10 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
                 test: /\.(scss|sass)$/,
                 use: [
                     'style-loader',
@@ -45,14 +49,28 @@ module.exports = {
         ]
     },
     plugins: [
-        new CopyWebpackPlugin([
+        new CopyWebpackPlugin(
+            [
+                {
+                    from: '',
+                    ignore: ['*.part.html', '*.partial.html'],
+                    transform: includehtml
+                }
+            ],
             {
-                from: 'src/html/*.html',
-                ignore: ['*.part.html', '*.partial.html'],
-                flatten: true,
-                transform: includehtml
-            },
-            { from: 'src/images/*', to: 'images/', flatten: true }
-        ])
+                context: 'src/html'
+            }
+        ),
+        new CopyWebpackPlugin(
+            [
+                {
+                    from: '',
+                    to: 'images/'
+                }
+            ],
+            {
+                context: 'src/images'
+            }
+        )
     ]
 };
