@@ -2,7 +2,7 @@ const path = require('path');
 var fs = require("fs");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-includehtml = (content, srcpath) => content.toString().split(/\r\n/).map(l => {
+includehtml = (content, srcpath) => content.toString().split(/\n/).map(l => {
     const re = /^(\s+)<!--\s+include\s+(\S+)\s+-->/;
     const result = re.exec(l);
     if (!result) return l;

@@ -85,6 +85,7 @@ header #logo {
 	position: absolute;
 	top: -50px;
 	right: 30px;
+	z-index: -100;
 }
 
 /*上部のメインメニュー
@@ -473,6 +474,7 @@ header #logo img {
 	right: 0px;
 	width: 50%;
 	height: auto;
+	z-index: -100;
 }
 
 /*上部のメインメニュー
@@ -558,6 +560,7 @@ header #logo img {
 	top: 10px;
 	right: 0px;
 	width: 45%;
+	z-index: -100;
 }
 
 /*上部のメインメニュー
